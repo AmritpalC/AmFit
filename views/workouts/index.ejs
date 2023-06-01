@@ -1,5 +1,14 @@
 <%- include('../partials/header') %>
 
+<!-- Index specific code -->
+
 <p>Below is a list of all workouts</p>
+
+<ul> <% workouts.forEach(function(workout){ %>
+    <li><a href="/workouts/<%=workout._id %>"><%= workout.name %> (<%= workout.date %>)</a></li>
+    <% }) %> 
+</ul>
+
+<!-- End of index specific code -->
 
 <%- include('../partials/footer') %>

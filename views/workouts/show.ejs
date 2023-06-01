@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+
+<!-- Show specific code -->
+
+<h3><%= workout.name %> workout details below</h3>
+<table>
+    <thead class="workoutShowTable">
+        <th>Date</th>
+        <th>Category</th>
+        <th>Duration</th>
+        <th>Calories</th>
+    </thead>
+    <tbody>
+        <td><%= workout.date %></td>
+        <td><%= workout.category %></td>
+        <td><%= workout.duration %></td>
+        <td><%= workout.calories %></td>
+    </tbody>
+</table>
+
+<h3>Exercises in workout</h3>
+<table>
+    <thead class="workoutExercisesShowTable">
+        <th>Exercises</th>
+    </thead>
+    <tbody>
+        <!-- Add forEach to iterate over exercises array when I get there to show all exercises -->
+        <td><%= workout.exercises %></td>
+    </tbody>
+</table>
+
+<!-- End of show specific code -->
+
+<%- include('../partials/footer') %>

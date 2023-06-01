@@ -8,6 +8,9 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 // GET /workouts
 router.get('/', workoutsCtrl.index);
 
+// Action: show -- Endpoint: GET /workouts/:id
+router.get('/:id', workoutsCtrl.show);
+
 // GET /workouts/new
 // ? the ensureLoggedIn will call next provided the user is logged in, so that they can create a new workout
 // ? adding these routes for later - also add update functionality -> PUT /workouts/:idß
