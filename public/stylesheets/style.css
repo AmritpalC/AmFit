@@ -7,13 +7,13 @@ a {
   color: #00B7FF;
 }
 
-.login {
+.navBar {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 34px;
 }
 
-.login img {
+.navBar img {
   height: 30px;
 }
