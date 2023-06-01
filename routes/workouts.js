@@ -15,12 +15,12 @@ router.get('/:id', workoutsCtrl.show);
 // ? the ensureLoggedIn will call next provided the user is logged in, so that they can create a new workout
 // ? adding these routes for later - also add update functionality -> PUT /workouts/:idß
 // ! add same protection to exercises routes and comments (if I reach that)
-// router.get('/new', ensureLoggedIn, workoutsCtrl.new);
+router.get('/new', ensureLoggedIn, workoutsCtrl.new);
 
 // GET /workouts/:id (show functionality)- Must be below new route
 // router.get('/:id', workoutsCtrl.show);
 
 // POST /workouts
-// router.post('/', ensureLoggedIn, workoutsCtrl.create);
+router.post('/', ensureLoggedIn, workoutsCtrl.create);
 
 module.exports = router;
