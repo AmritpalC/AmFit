@@ -18,3 +18,16 @@ a {
 .navBar img {
   height: 30px;
 }
+
+.delete-workout-form {
+  display: inline-block;
+  margin-left: 10px;
+}
+	
+.delete-workout-form button {
+  color: red;
+}
+	
+/* li {
+  list-style: none;
+} */

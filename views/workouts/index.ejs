@@ -4,8 +4,18 @@
 
 <p>Below is a list of all workouts</p>
 
-<ul> <% workouts.forEach(function(workout){ %>
-    <li><a href="/workouts/<%=workout._id %>"><%= workout.name %> (<%= workout.date %>)</a></li>
+<ul> 
+    <% workouts.forEach(function(workout){ %>
+        <li>
+            <a href="/workouts/<%=workout._id %>"><%= workout.name %></a> (<%= workout.date.toLocaleDateString() %>)
+            <form 
+                action="/workouts/<%= workout.id %>?_method=DELETE"
+                method="POST"
+                class="delete-workout-form"
+            >
+                <button type="submit">X</button>
+            </form>
+        </li>
     <% }) %> 
 </ul>
 
