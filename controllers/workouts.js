@@ -48,7 +48,8 @@ async function create(req, res, next) {
         // and formatting before pulling through
         const body = {
             ...req.body,
-            exercises: req.body.exercises.trim().split(/\s*,\s*/)
+            // ! removed for now -> further work and array implementation needed
+            // exercises: req.body.exercises.trim().split(/\s*,\s*/)
         }
         // submitting doc to the database
         const createdWorkout = await Workout.create(body)
