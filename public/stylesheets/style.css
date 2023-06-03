@@ -19,6 +19,33 @@ a {
   height: 30px;
 }
 
+.add-workout-form {
+  width: 100%;
+  max-width: 250px;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.add-workout-form label {
+  margin-top: 10px;
+}
+
+#addWorkoutBtn {
+  margin-top: 10px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .add-workout-form {
+    max-width: 400px;
+    padding: 40px;
+  }
+}
+
 .delete-workout-form {
   display: inline-block;
   margin-left: 10px;

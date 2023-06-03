@@ -65,6 +65,7 @@ async function create(req, res, next) {
     }
 }
 
+// DELETE /workout/:id
 async function deleteWorkout(req, res, next) {
     try {
         const { id } = req.params
@@ -73,9 +74,9 @@ async function deleteWorkout(req, res, next) {
         // await Workout.deleteOne({ _id: id })
         // ? But I want to implement a render to a delete confirmation screen, which I 
         // ? will add later if/when I have time
+        // ? res.render(`workouts/${workout._id}/delete`, { workout })
         await workout.deleteOne()
         res.redirect('/workouts')
-
     } catch (err) {
         console.log('ERROR MESSAGE ->', { errorMessage: err.message })
         next()
@@ -85,12 +86,26 @@ async function deleteWorkout(req, res, next) {
     }
 }
 
-// DELETE /workout/:id
-
 module.exports = {
     index,
     show,
     new: newWorkout,
     create,
-    delete: deleteWorkout
+    delete: deleteWorkout,
+    // confirmDeleteWorkout
 }
+
+// // DELETE confirmation /workout/:id/confirm-delete
+// async function confirmDeleteWorkout(req, res, next) {
+//     try {
+//         const { id } = req.params
+//         await Workout.deleteOne({ _id: id })
+//         res.redirect('/workouts')
+//     } catch (err) {
+//         console.log('ERROR MESSAGE ->', { errorMessage: err.message })
+//         next()
+//         // next() moves on to error middleware if id doesn't match
+//         // could instead use res.render() - to link to a view such as 
+//         // workout not found -> such as workouts/notFound.ejs
+//     }
+// }

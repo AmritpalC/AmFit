@@ -1,0 +1,22 @@
+<!-- COME BACK TO THIS IF I HAVE TIME! -->
+
+<%- include('../partials/header') %>
+
+<!-- Delete confirmation page specific code -->
+
+<h3>Are you sure you want to delete this workout?</h3>
+
+<p>Workout Name: <%= workout.name %>></p>
+<p>Date: <%= workout.date.toLocaleDateString() %></p>
+
+<form 
+    action="/workouts/<%= workout.id %>?_method=DELETE"
+    method="POST"
+    class="delete-workout-form"
+>
+    <button type="submit">Yes, delete</button>
+</form>
+
+<!-- End of delete conf page specific code -->
+
+<%- include('../partials/footer') %>
