@@ -1,22 +1,69 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
+  /* padding: 50px; */
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
   font: 14px "Varela Round", Helvetica, Arial, sans-serif;
 }
 
+main, footer {
+  padding: 50px;
+}
+
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+
+.appName {
+  color: aquamarine;
 }
 
 .navBar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 34px;
+  background-color: black;
+}
+
+.leftLinks {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rightLinks {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
 }
 
 .navBar img {
-  height: 30px;
+  height: 34px;
+  /* height: auto;
+  max-width: 10vw / 10%; */
+}
+
+.login img {
+  height: 20px;
+  vertical-align: middle;
+}
+
+.navBar a {
+  cursor: pointer;
+  display: inline-block;
+  padding: 1% 2%;
+  border-radius: 10px;
+}
+
+.navBar a:hover {
+  background-color: white;
 }
 
 .add-workout-form, .edit-workout-form {
@@ -34,8 +81,17 @@ a {
   margin-top: 10px;
 }
 
-#addWorkoutBtn {
+.addWorkoutBtn {
   text-align: center;
+}
+
+.edit-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: aquamarine;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .m-top {
@@ -57,7 +113,12 @@ a {
 .delete-workout-form button {
   color: red;
 }
-	
-/* li {
+
+ul {
+  padding-left: 0;
+}
+
+li {
   list-style: none;
-} */
+  padding-bottom: 1%;
+}

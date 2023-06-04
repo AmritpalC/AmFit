@@ -4,7 +4,7 @@
 
 <p>Please enter the details for your new workout below</p>
 
-<form action="/workouts" method="POST" class="add-workout-form, m-top">
+<form action="/workouts" method="POST" class="add-workout-form m-top">
 
     <!-- Name -->
     <label>Name</label>
@@ -31,10 +31,11 @@
     <input type="text" name="exercises">
 
     <!-- Submit new workout -->
-    <span id="addWorkoutBtn" class="m-top"><input type="submit" value="Add Workout"></span>
+    <span class="addWorkoutBtn m-top"><input type="submit" value="Add Workout"></span>
 
     <!-- Error rendering added -->
     <small class="red"><%= errorMessage %></small>
+    
 </form>
 
 <!-- End of new specific code -->

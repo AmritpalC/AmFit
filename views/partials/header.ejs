@@ -11,19 +11,26 @@
     <title><%= title %></title>
 </head>
 <body>
-    <nav>
-        <img src="/images/panda-workout.jpg" class="navBar">
-        <a href="/">Home</a>
-        <a href="/workouts" <%- title === 'All Workouts' ? 'class="active"' : '' %>>All Workouts</a>
-        <% if (user) { %>
-            <!-- Add back once exercises and new function for workouts set up -->
-          <!-- <a href="/exercises/new"	<%- title === 'Add Exercise' ? 'class="active"' : '' %>>
-              ADD EXERCISE</a> -->
-          <a href="/workouts/new" <%- title === 'Add Workout' ? 'class="active"' : '' %>>Add Workout</a>
-          <a href="/logout">Log Out</a>
-        <% } else { %>
-          <a href="/auth/google" class="navBar">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-        <% } %>
-      </nav>
-    <main>
-        <h1><%= title %></h1>
+  <nav class="navBar">
+    <div class="leftLinks">
+      <img src="/images/panda-workout.jpg">
+      <h1 class="appName">AmFit</h1>
+      <a href="/">Home</a>
+      <a href="/workouts" <%- title === 'All Workouts' ? 'class="active"' : '' %>>All Workouts</a>
+      <% if (user) { %>
+          <!-- Add back once exercises and new function for workouts set up -->
+        <!-- <a href="/exercises/new"	<%- title === 'Add Exercise' ? 'class="active"' : '' %>>
+            ADD EXERCISE</a> -->
+        <a href="/workouts/new" <%- title === 'Add Workout' ? 'class="active"' : '' %>>Add Workout</a>
+      <% } %>    
+    </div>
+    <div class="rightLinks">
+      <% if (user) { %>
+        <a href="/logout">Log Out</a>
+      <% } else { %>
+        <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+      <% } %>
+    </div>
+  </nav>
+  <main>
+    <h1><%= title %></h1>
