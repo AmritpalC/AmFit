@@ -7,7 +7,7 @@
 <ul> 
     <% workouts.forEach(function(workout){ %>
         <li>
-            <a href="/workouts/<%=workout._id %>"><%= workout.name %></a> (<%= workout.date.toLocaleDateString() %>)
+            <a href="/workouts/<%=workout._id %>"><%= workout.name %></a> (<%= workout.date.toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) %>)
             <form 
                 action="/workouts/<%= workout.id %>?_method=DELETE"
                 method="POST"

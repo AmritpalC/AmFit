@@ -4,6 +4,7 @@ const router = express.Router();
 // Import Controllers
 const workoutsCtrl = require('../controllers/workouts');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
+const workout = require('../models/workout');
 
 // GET /workouts
 router.get('/', workoutsCtrl.index);
@@ -19,6 +20,12 @@ router.get('/:id', workoutsCtrl.show);
 
 // POST /workouts
 router.post('/', ensureLoggedIn, workoutsCtrl.create);
+
+// GET /workouts/:id/edit
+router.get('/:id/edit', ensureLoggedIn, workoutsCtrl.edit);
+
+// PUT /workouts/:id -> update action
+router.put('/:id', ensureLoggedIn, workoutsCtrl.update)
 
 // DELETE /workouts/:id
 router.delete('/:id', ensureLoggedIn, workoutsCtrl.delete)

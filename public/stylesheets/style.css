@@ -19,7 +19,7 @@ a {
   height: 30px;
 }
 
-.add-workout-form {
+.add-workout-form, .edit-workout-form {
   width: 100%;
   max-width: 250px;
   border: 1px solid;
@@ -35,12 +35,15 @@ a {
 }
 
 #addWorkoutBtn {
-  margin-top: 10px;
   text-align: center;
 }
 
+.m-top {
+  margin-top: 10px;
+}
+
 @media (min-width: 768px) {
-  .add-workout-form {
+  .add-workout-form, .edit-workout-form {
     max-width: 400px;
     padding: 40px;
   }

@@ -1,6 +1,23 @@
-<%- include('../partials/header') %>
-
 <!-- Show specific code -->
+<!-- <h3><%= workout.name %> workout details below</h3> -->
+
+<!-- <ul>
+    <% for(const key in workout) { %>
+        <% if(key !== '_id' && key !== '__v') { %>
+            <li><%= key[0].toUpperCase() + key.substring(1) %>: <%= workout[key] %></li>
+       <% } %>
+    <% } %>
+    
+    <a href="/workouts/<%= workout._id %>/edit">Edit Workout</a>
+</ul> -->
+
+
+<!-- End of show specific code -->
+
+
+<!-- Table version before edit mode -->
+
+<%- include('../partials/header') %>
 
 <h3><%= workout.name %> workout details below</h3>
 <table>
@@ -11,7 +28,7 @@
         <th>Calories</th>
     </thead>
     <tbody>
-        <td><%= workout.date.toLocaleDateString() %></td>
+        <td><%= workout.date.toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) %></td>
         <td><%= workout.category %></td>
         <td><%= workout.duration %></td>
         <td><%= workout.calories %></td>
@@ -29,6 +46,6 @@
     </tbody>
 </table>
 
-<!-- End of show specific code -->
+<a href="/workouts/<%= workout._id %>/edit">Edit Workout</a>
 
 <%- include('../partials/footer') %>

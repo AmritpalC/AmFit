@@ -11,7 +11,7 @@ const workoutSchema = new mongoose.Schema({
     category: { type: String, required: true },
     duration: { type: Number, required: true },
     calories: { type: Number },
-    exercises: { type: String, required: true },
+    exercises:[String],
     // likes: { type: String },
     // comments: { type: String }
 }, {

@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+<!-- New specific code -->
+
+<p>Please edit your workout below</p>
+
+<form action="/workouts/<%= workout._id %>?_method=PUT" method="POST" class="edit-workout-form">
+
+    <!-- Name -->
+    <label>Name</label>
+    <input type="text" name="name" value="<%= workout.name %>">
+    
+    <!-- Date -->
+    <label>Date</label>
+    <input type="datetime-local" name="date" value="<%= workout.date.toISOString().slice(0, 16) %>">
+    
+    <!-- Category -->
+    <label>Category</label>
+    <input type="text" name="category" value="<%= workout.category %>">
+    
+    <!-- Duration -->
+    <label>Duration</label>
+    <input type="text" name="duration" value="<%= workout.duration %>">
+    
+    <!-- Calories -->
+    <label>Calories burned</label>
+    <input type="text" name="calories" value="<%= workout.calories %>">
+    
+    <!-- Exercises -->
+    <label>Exercises (separate exercises with commas)</label>
+    <input type="text" name="exercises" value="<%= workout.exercises %>">
+
+    <!-- Submit new workout -->
+    <span id="addWorkoutBtn"><input type="submit" value="Update Workout"></span>
+
+    <!-- Error rendering added -->
+    <small class="red"><%= errorMessage %></small>
+</form>
+
+<!-- End of new specific code -->
+
+<%- include('../partials/footer') %>

@@ -18,6 +18,11 @@ async function show(req, res, next) {
     try {
         const { id } = req.params
         const workout = await Workout.findById(id)
+        
+        for(const key in workout.toObject()){
+            console.log(`${key[0].toUpperCase() + key.substring(1)}: ${workout[key]}`)
+        }
+
         res.render('workouts/show', {
             workout,
             title: workout.name
@@ -86,12 +91,43 @@ async function deleteWorkout(req, res, next) {
     }
 }
 
+// GET /workouts/:id/edit -> renders edit form view on client side
+async function edit(req, res, next) {
+    try {
+        const { id } = req.params
+        const workout = await Workout.findById(id)
+        console.log(workout)
+        res.render('workouts/edit', { title: `Edit ${workout.name}`, workout, errorMessage: '' })
+    } catch (err) {
+        console.log('ERROR MESSAGE ->', err.message)
+        next()
+    }
+}
+
+async function update(req, res, next) {
+    try {
+        const { id } = req.params
+        const workoutDocument = await Workout.findById(id)
+        Object.assign(workoutDocument, req.body)
+        console.log('WORKOUT DOC AFTER MERGE ->', workoutDocument)
+        await workoutDocument.save()
+        // res.render('/workouts/show', { title: workoutDocument.name, workout: workoutDocument.toObject() })
+        // res.redirect(`/workouts/${workoutDocument._id}`, { title: workoutDocument.name, workout: workoutDocument.toObject() })
+        res.redirect(`/workouts/${workoutDocument._id}`)
+    } catch (err) {
+        console.log('ERROR MESSAGE ->', err.message)
+        res.render('workouts/edit', { title: 'Update Workout', errorMessage: err.message })
+    }
+}
+
 module.exports = {
     index,
     show,
     new: newWorkout,
     create,
     delete: deleteWorkout,
+    edit,
+    update
     // confirmDeleteWorkout
 }
 
