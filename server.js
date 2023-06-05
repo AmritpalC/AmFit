@@ -11,6 +11,7 @@ const passport = require('passport');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const workoutsRouter = require('./routes/workouts');
+const likesRouter = require('./routes/likes');
 
 const app = express();
 
@@ -59,6 +60,9 @@ app.use('/users', usersRouter);
 
 // Data Resource
 app.use('/workouts', workoutsRouter);
+
+// Data Resource: Workouts/likes
+app.use('/', likesRouter);
 
 // ? 404 HANDLING
 // catch 404 and forward to error handler

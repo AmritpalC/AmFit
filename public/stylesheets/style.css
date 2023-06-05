@@ -119,6 +119,8 @@ ul {
 }
 
 li {
+  display: flex;
+  justify-content: space-between;
   list-style: none;
   padding-bottom: 1%;
 }

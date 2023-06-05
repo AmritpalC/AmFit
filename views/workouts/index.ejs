@@ -8,6 +8,14 @@
     <% workouts.forEach(function(workout){ %>
         <li>
             <a href="/workouts/<%=workout._id %>"><%= workout.name %></a> (<%= workout.date.toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) %>)
+            
+            <!-- Like/unlike button -->
+            <form class="like-button" method="POST" action="/workouts/<%= workout._id %>/likes">
+                <button type="submit">Like</button>
+            </form>
+            <!-- Will need to add validation to check if user has liked already -->
+
+            
             <form 
                 action="/workouts/<%= workout.id %>?_method=DELETE"
                 method="POST"
