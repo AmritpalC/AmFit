@@ -7,6 +7,9 @@ async function index(req, res, next) {
     // passing them into the render template
     const allWorkouts = await Workout.find({})
     console.log(allWorkouts)
+    console.log(allWorkouts[0].likes)
+    console.log(allWorkouts[1].likes)
+    console.log(allWorkouts[0].likes.length)
     res.render('workouts/index', {
         title: 'Search Workouts',
         workouts: allWorkouts

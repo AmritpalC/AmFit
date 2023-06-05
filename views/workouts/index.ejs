@@ -11,10 +11,14 @@
             
             <!-- Like/unlike button -->
             <form class="like-button" method="POST" action="/workouts/<%= workout._id %>/likes">
-                <button type="submit">Like</button>
+                <% if (workout.likes.some(like => like.user.equals(user._id))) { %>
+                    <button type="submit">Unlike</button>
+                <% } else { %>
+                    <button type="submit">Like</button>
+                <% } %>
             </form>
-            <!-- Will need to add validation to check if user has liked already -->
 
+            Likes: <%= workout.likes.length %>
             
             <form 
                 action="/workouts/<%= workout.id %>?_method=DELETE"
