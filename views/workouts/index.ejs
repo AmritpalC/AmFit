@@ -10,13 +10,16 @@
             <a href="/workouts/<%=workout._id %>"><%= workout.name %></a> (<%= workout.date.toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) %>)
             
             <!-- Like/unlike button -->
-            <form class="like-button" method="POST" action="/workouts/<%= workout._id %>/likes">
-                <% if (workout.likes.some(like => like.user.equals(user._id))) { %>
-                    <button type="submit">Unlike</button>
-                <% } else { %>
-                    <button type="submit">Like</button>
-                <% } %>
-            </form>
+            <% if (user) { %>
+                <form class="like-button" method="POST" action="/workouts/<%= workout._id %>/likes">
+                    <% if (workout.likes.some(like => like.user.equals(user._id))) { %>
+                        <button type="submit">Unlike</button>
+                    <% } else { %>
+                        <button type="submit">Like</button>
+                    <% } %>
+                </form>
+            <% } %>
+
 
             Likes: <%= workout.likes.length %>
             
