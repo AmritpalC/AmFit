@@ -3,6 +3,7 @@
 }
 
 body {
+  margin: 0;
   /* padding: 50px; */
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
   font: 14px "Varela Round", Helvetica, Arial, sans-serif;
@@ -25,8 +26,14 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 34px;
+  height: 40px;
   background-color: black;
+}
+
+.name-and-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .leftLinks {
@@ -44,8 +51,9 @@ a {
   padding-right: 10px;
 }
 
-.navBar img {
+.name-and-logo img {
   height: 34px;
+  border-radius: 10px;
   /* height: auto;
   max-width: 10vw / 10%; */
 }
@@ -123,4 +131,8 @@ li {
   justify-content: space-between;
   list-style: none;
   padding-bottom: 1%;
+}
+
+.red {
+  color: red;
 }

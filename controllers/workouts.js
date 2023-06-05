@@ -8,7 +8,6 @@ async function index(req, res, next) {
     const allWorkouts = await Workout.find({})
     console.log(allWorkouts)
     console.log(allWorkouts[0].likes)
-    console.log(allWorkouts[1].likes)
     console.log(allWorkouts[0].likes.length)
     res.render('workouts/index', {
         title: 'Search Workouts',
@@ -69,7 +68,7 @@ async function create(req, res, next) {
         console.log('ERROR MESSAGE ->', err.message)
         // for now, will res.render same page and send an error message
         // ! later can change to pass certain info down
-        res.render('/workouts/new', { errorMessage: err.message })
+        res.render('workouts/new', { title: 'Add Workout', errorMessage: err.message })
     }
 }
 
@@ -78,8 +77,11 @@ async function deleteWorkout(req, res, next) {
     try {
         const { id } = req.params
         const workout = await Workout.findById(id)
+        
+        // ! add check to see if user created the workout so can delete
         // could be more concise, by using:
         // await Workout.deleteOne({ _id: id })
+
         // ? But I want to implement a render to a delete confirmation screen, which I 
         // ? will add later if/when I have time
         // ? res.render(`workouts/${workout._id}/delete`, { workout })

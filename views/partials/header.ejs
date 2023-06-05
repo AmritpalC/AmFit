@@ -13,8 +13,10 @@
 <body>
   <nav class="navBar">
     <div class="leftLinks">
-      <img src="/images/panda-workout.jpg">
-      <h1 class="appName">AmFit</h1>
+      <div class="name-and-logo">
+        <img src="/images/panda-workout.jpg">&nbsp;
+        <h1 class="appName">AmFit</h1>
+      </div>
       <a href="/">Home</a>
       <a href="/workouts" <%- title === 'All Workouts' ? 'class="active"' : '' %>>All Workouts</a>
       <% if (user) { %>
