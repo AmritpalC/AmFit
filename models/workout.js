@@ -19,7 +19,7 @@ const workoutSchema = new Schema({
     calories: { type: Number, min: 1 },
     exercises:[String],
     likes: [likeSchema],
-    // user: { type: Schema.Types.ObjectId, ref: 'User', required: true }
+    user: { type: Schema.Types.ObjectId, ref: 'User' }
     // comments: { type: String }
 }, {
     timestamps: true

@@ -18,6 +18,9 @@ router.get('/new', ensureLoggedIn, workoutsCtrl.new);
 // GET /workouts/:id (show functionality)- Must be below new route
 router.get('/:id', workoutsCtrl.show);
 
+// GET /workouts/my -> show logged in user's workouts
+router.get('/my', ensureLoggedIn, workoutsCtrl.my)
+
 // POST /workouts
 router.post('/', ensureLoggedIn, workoutsCtrl.create);
 

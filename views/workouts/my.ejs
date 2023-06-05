@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<!-- Index specific code -->
+
+<p>All your workouts below:</p>
+
+<ul> 
+    <% workouts.forEach(function(workout){ %>
+        <li>
+            <a href="/workouts/<%=workout._id %>"><%= workout.name %></a> (<%= workout.date.toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) %>)
+            <div>Likes: <%= workout.likes.length %></div>
+            <form 
+                action="/workouts/<%= workout.id %>?_method=DELETE"
+                method="POST"
+                class="delete-workout-form"
+            >
+                <button type="submit">X</button>
+            </form>
+        </li>
+    <% }) %> 
+</ul>
+
+<!-- End of index specific code -->
+
+<%- include('../partials/footer') %>
