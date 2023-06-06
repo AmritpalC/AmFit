@@ -46,7 +46,9 @@
     </tbody>
 </table>
 
-<a href="/workouts/<%= workout._id %>/edit" class="edit-button m-top">Edit Workout</a>
+<% if (user && workout.user.equals(user._id)) { %>
+    <a href="/workouts/<%= workout._id %>/edit" class="edit-button m-top">Edit Workout</a>
+<% } %>
 
 <p>
     Workout created on: <%= workout.createdAt.toLocaleString() %>
