@@ -12,27 +12,33 @@
 </head>
 <body>
   <nav class="navBar">
-    <div class="leftLinks">
-      <div class="name-and-logo">
-        <img src="/images/panda-workout.jpg">&nbsp;
-        <h1 class="appName">AmFit</h1>
-      </div>
-      <a href="/">Home</a>
-      <a href="/workouts" <%- title === 'All Workouts' ? 'class="active"' : '' %>>All Workouts</a>
-      <% if (user) { %>
-          <!-- Add back once exercises and new function for workouts set up -->
-        <!-- <a href="/exercises/new"	<%- title === 'Add Exercise' ? 'class="active"' : '' %>>
-            ADD EXERCISE</a> -->
-          <a href="/workouts/my" <%- title === 'My Workouts' ? 'class="active"' : '' %>>My Workouts</a>
-          <a href="/workouts/new" <%- title === 'Add Workout' ? 'class="active"' : '' %>>Add Workout</a>
-      <% } %>    
+    <div class="name-and-logo">
+      <img src="/images/panda-workout.jpg">&nbsp;
+      <h1 class="appName">AmFit</h1>
     </div>
-    <div class="rightLinks">
-      <% if (user) { %>
-        <a href="/logout">Log Out</a>
-      <% } else { %>
-        <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-      <% } %>
+    <div class="links">
+      <div class="left-side-links">
+        <a href="/">Home</a>
+        <div class="separator">|</div>  
+        <a href="/workouts" <%- title === 'All Workouts' ? 'class="active"' : '' %>>All Workouts</a>
+        <div class="separator">|</div>  
+        <% if (user) { %>
+            <!-- Add back once exercises and new function for workouts set up -->
+          <!-- <a href="/exercises/new"	<%- title === 'Add Exercise' ? 'class="active"' : '' %>>
+              ADD EXERCISE</a> -->
+            <a href="/workouts/my" <%- title === 'My Workouts' ? 'class="active"' : '' %>>My Workouts</a>
+            <div class="separator">|</div>  
+            <a href="/workouts/new" <%- title === 'Add Workout' ? 'class="active"' : '' %>>Add Workout</a>
+        <% } %>
+      </div>
+      <div class="separator">|</div>   
+      <div class="right-side-links">
+        <% if (user) { %>
+          <a href="/logout">Log Out</a>
+        <% } else { %>
+          <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
+      </div>
     </div>
   </nav>
   <main>

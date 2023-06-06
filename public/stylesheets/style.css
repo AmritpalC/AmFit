@@ -5,7 +5,6 @@
 body {
   margin: 0;
   /* padding: 50px; */
-  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
   font: 14px "Varela Round", Helvetica, Arial, sans-serif;
 }
 
@@ -84,50 +83,52 @@ li:last-child {
   color: white;
 }
 
-/* h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-
 .navBar {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  height: 60px;
   background-color: black;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 84%;
+}
+
+.separator {
+  color: white;
+  font-size: 1.4em;
+  display: none;
+}
+
+.left-side-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-side-links {
+  padding-bottom: 10px;
 }
 
 .appName {
   color: aquamarine;
 }
+
 .name-and-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.leftLinks {
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.rightLinks {
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 10px;
+  width: 16%;
 }
 
 .name-and-logo img {
   height: 40px;
   border-radius: 10px;
-  /* height: auto;
-  max-width: 10vw / 10%; */
 }
 
 .login img {
@@ -138,9 +139,10 @@ li:last-child {
 .navBar a {
   cursor: pointer;
   display: inline-block;
-  padding: 1% 2%;
+  padding: 10px 10px;
   border-radius: 20px;
   color: #00B7FF;
+  font-size: 1em;
 }
 
 .navBar a:hover {
@@ -204,10 +206,52 @@ a:not(.navBar a):hover {
   text-align: right;
 }
 
+/* ? Media Queries */
+
 @media (min-width: 768px) {
   li {
     display: flex;
     flex-direction: row;
+  }
+  
+  .navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: black;
+  padding-right: 10px;
+  }
+
+  .navBar a {
+    font-size: 1.2em;
+  }
+
+  .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 84%;
+  }
+
+  .left-side-links {
+  width: 86%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  }
+
+  .right-side-links {
+  width: 14%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0px;
+  padding-right: 10px;
   }
   
   .add-workout-form, .edit-workout-form {
