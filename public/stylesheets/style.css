@@ -23,6 +23,9 @@ main {
 footer {
   background-color: black;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 a {
@@ -137,7 +140,7 @@ li:last-child {
   display: inline-block;
   padding: 1% 2%;
   border-radius: 20px;
-  color: #B84786;
+  color: #00B7FF;
 }
 
 .navBar a:hover {
@@ -193,9 +196,12 @@ a:not(.navBar a):hover {
   color: red;
 }
 
-
 .red {
   color: red;
+}
+
+.attributes {
+  text-align: right;
 }
 
 @media (min-width: 768px) {
