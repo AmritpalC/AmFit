@@ -21,6 +21,9 @@ router.get('/:id', workoutsCtrl.show);
 // GET /workouts/my -> show logged in user's workouts
 router.get('/my', ensureLoggedIn, workoutsCtrl.my)
 
+// GET /workouts/unauthorized -> error if not allowed to delete a workout
+router.get('/unauthorized', ensureLoggedIn, workoutsCtrl.unauthorized)
+
 // POST /workouts
 router.post('/', ensureLoggedIn, workoutsCtrl.create);
 

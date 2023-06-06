@@ -85,8 +85,18 @@ async function deleteWorkout(req, res, next) {
         // ? But I want to implement a render to a delete confirmation screen, which I 
         // ? will add later if/when I have time
         // ? res.render(`workouts/${workout._id}/delete`, { workout })
+        // validating if user is the same as who created the workout -> if not:
+        if (workout.user.toString() !== req.user._id.toString()) {
+            return res.render('workouts/unauthorized', { title: 'Error', message: 'You are not authorised to delete this workout.' })
+        }
+        // else, when user matches, delete workout and return to page they were on
         await workout.deleteOne()
+        const referer = req.headers.referer
+        if (referer && referer.includes('/workouts/my')) {
+            res.redirect('/workouts/my')
+        } else {
         res.redirect('/workouts')
+        }
     } catch (err) {
         console.log('ERROR MESSAGE ->', { errorMessage: err.message })
         next()
@@ -102,6 +112,9 @@ async function edit(req, res, next) {
         const { id } = req.params
         const workout = await Workout.findById(id)
         console.log(workout)
+        if (workout.user.toString() !== req.user._id.toString()) {
+            return res.render('workouts/unauthorized', { title: 'Error', message: 'You are not authorised to edit this workout.' })
+        }
         res.render('workouts/edit', { title: `Edit ${workout.name}`, workout, errorMessage: '' })
     } catch (err) {
         console.log('ERROR MESSAGE ->', err.message)
@@ -138,6 +151,10 @@ async function myWorkouts(req, res, next) {
     }
 }
 
+function unauthorized(req, res, next) {
+    res.render('workouts/unauthorized', { errorMessage })
+}
+
 module.exports = {
     index,
     show,
@@ -146,7 +163,8 @@ module.exports = {
     delete: deleteWorkout,
     edit,
     update,
-    my: myWorkouts
+    my: myWorkouts,
+    unauthorized
     // confirmDeleteWorkout
 }
 
