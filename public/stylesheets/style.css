@@ -253,6 +253,10 @@ a:not(.navBar a):hover {
   padding-bottom: 0px;
   padding-right: 10px;
   }
+
+  .separator {
+    display: block;
+  }
   
   .add-workout-form, .edit-workout-form {
     max-width: 450px;

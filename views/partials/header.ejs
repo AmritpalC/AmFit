@@ -29,9 +29,9 @@
             <a href="/workouts/my" <%- title === 'My Workouts' ? 'class="active"' : '' %>>My Workouts</a>
             <div class="separator">|</div>  
             <a href="/workouts/new" <%- title === 'Add Workout' ? 'class="active"' : '' %>>Add Workout</a>
+            <div class="separator">|</div>  
         <% } %>
-      </div>
-      <div class="separator">|</div>   
+      </div> 
       <div class="right-side-links">
         <% if (user) { %>
           <a href="/logout">Log Out</a>
