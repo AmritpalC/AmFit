@@ -182,7 +182,7 @@ a:not(.navBar a):hover {
   text-align: center;
 }
 
-.edit-button {
+.edit-button, .all-exercises-btn {
   display: inline-block;
   padding: 8px 16px;
   background-color: aquamarine;

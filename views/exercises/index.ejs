@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 
-<!-- My exercises specific code -->
+<!-- All exercises specific code -->
 <h1><%= title %></h1>
 
-<p>Hi <%= user.name %>! Here are all your exercises below:</p>
+<p>Please find all exercises below:</p>
 
 <ul> 
     <% exercises.forEach(function(exercise){ %>
@@ -13,7 +13,6 @@
     <% }) %> 
 </ul>
 
-<a href="/exercises" class="all-exercises-btn m-top">All Exercises</a>
-<!-- End of my exercises specific code -->
+<!-- End of all exercises specific code -->
 
 <%- include('../partials/footer') %>

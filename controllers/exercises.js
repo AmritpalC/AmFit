@@ -1,6 +1,15 @@
 const Exercise = require('../models/exercise');
 const Workout = require('../models/workout');
 
+async function index(req, res, next) {
+    const allExercises = await Exercise.find({}).sort('name')
+    console.log(allExercises)
+    res.render('exercises/index', {
+        title: 'Search Exercises',
+        exercises: allExercises
+    })
+}
+
 async function show(req, res, next) {
     try {
         const { id } = req.params
@@ -51,6 +60,7 @@ async function myExercises(req, res, next) {
 }
 
 module.exports = {
+    index,
     new: newExercise,
     create,
     show,

@@ -5,6 +5,9 @@ const router = express.Router();
 const exercisesCtrl = require('../controllers/exercises');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 
+// GET /workouts
+router.get('/exercises', exercisesCtrl.index);
+
 // GET /exercises/new (New)
 router.get('/exercises/new', ensureLoggedIn, exercisesCtrl.new);
 
