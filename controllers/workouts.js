@@ -5,7 +5,7 @@ const Workout = require('../models/workout')
 async function index(req, res, next) {
     // want to query workouts collection and return all workouts, 
     // passing them into the render template
-    const allWorkouts = await Workout.find({})
+    const allWorkouts = await Workout.find({}).sort({ date: -1, time: -1 })
     console.log(allWorkouts)
     res.render('workouts/index', {
         title: 'Search Workouts',
@@ -141,7 +141,7 @@ async function update(req, res, next) {
 async function myWorkouts(req, res, next) {
     try {
         const userId = req.user._id
-        const workouts = await Workout.find({ user: userId })
+        const workouts = await Workout.find({ user: userId }).sort({ date: -1, time: -1 })
         console.log(workouts)
         console.log(req.user)
         res.render('workouts/my', { title: 'My Workouts', workouts })
