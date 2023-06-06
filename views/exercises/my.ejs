@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<!-- My exercises specific code -->
+<h1><%= title %></h1>
+
+<p>Hi <%= user.name %>! Here are all your exercises below:</p>
+
+<ul> 
+    <% exercises.forEach(function(exercise){ %>
+        <li>
+            <a href="/exercises/<%=exercise._id %>"><%= exercise.name %></a>
+        </li>
+    <% }) %> 
+</ul>
+<!-- End of my exercises specific code -->
+
+<%- include('../partials/footer') %>

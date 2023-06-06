@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+
+<!-- New exercises specific code -->
+<h1><%= title %></h1>
+
+<p>Hi <%= user.name %>! Here are all your exercises below:</p>
+
+<ul> 
+    <% exercises.forEach(function(exercise){ %>
+        <li>
+            <a href="/exercises/<%=exercise._id %>"><%= exercise.name %></a>
+        </li>
+    <% }) %> 
+</ul>
+
+<div>Before adding, please ensure that the exercise is not in the following list:</div>
+<section id="badge-container">
+  <% exercises.forEach(function(exercise) { %>
+    <article class="badge"><%= exercise.name %></article>
+  <% }) %>
+</section>
+
+<form class="add-exercise-form" action="/exercises" method="POST">
+    
+    <!-- Name -->
+    <label>Name</label>
+    <input type="text" name="name">
+
+    <!-- Category -->
+    <label>Category</label>
+    <input type="text" name="category">
+
+    <!-- Muscles Worked -->
+    <label>Muscles Worked</label>
+    <input type="text" name="musclesWorked">
+
+    <span class="addExerciseBtn m-top"><input type="submit" value="Add Exercise"></span>
+
+</form>
+
+<!-- End of new exercises specific code -->
+
+<%- include('../partials/footer') %>

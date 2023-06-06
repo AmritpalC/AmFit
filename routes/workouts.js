@@ -4,7 +4,6 @@ const router = express.Router();
 // Import Controllers
 const workoutsCtrl = require('../controllers/workouts');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
-const workout = require('../models/workout');
 
 // GET /workouts
 router.get('/', workoutsCtrl.index);

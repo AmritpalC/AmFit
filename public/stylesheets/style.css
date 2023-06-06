@@ -111,6 +111,12 @@ li:last-child {
   align-items: center;
 }
 
+.nav-exercises {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .right-side-links {
   padding-bottom: 10px;
 }
@@ -153,7 +159,11 @@ a:not(.navBar a):hover {
   transform: scale(1.1);
 }
 
-.add-workout-form, .edit-workout-form {
+.nav-exercises a {
+  color: cornflowerblue;
+}
+
+.add-workout-form, .edit-workout-form, .add-exercise-form {
   width: 100%;
   max-width: 250px;
   border: 1px solid;
@@ -164,7 +174,7 @@ a:not(.navBar a):hover {
   box-sizing: border-box;
 }
 
-.add-workout-form label {
+.add-workout-form label, .edit-workout-form label, .add-exercise-form label {
   margin-top: 10px;
 }
 
@@ -204,6 +214,25 @@ a:not(.navBar a):hover {
 
 .attributes {
   text-align: right;
+}
+
+#badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* padding: 1rem; */
+  width: 80%;
+  border: 2px solid #B8C0C2;
+  border-radius: .5rem;
+  margin: .5rem 0 2rem;
+}
+
+.badge {
+  background-color: #B8C0C2;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: .3rem;
+  font-size: .8rem;
+  text-align: center;
 }
 
 /* ? Media Queries */
@@ -254,11 +283,18 @@ a:not(.navBar a):hover {
   padding-right: 10px;
   }
 
+  .nav-exercises {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
   .separator {
     display: block;
   }
   
-  .add-workout-form, .edit-workout-form {
+  .add-workout-form, .edit-workout-form, .add-exercise-form {
     max-width: 450px;
     padding: 40px;
   }

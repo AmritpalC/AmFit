@@ -21,16 +21,19 @@
         <a href="/">Home</a>
         <div class="separator">|</div>  
         <a href="/workouts" <%- title === 'All Workouts' ? 'class="active"' : '' %>>All Workouts</a>
-        <div class="separator">|</div>  
         <% if (user) { %>
-            <!-- Add back once exercises and new function for workouts set up -->
-          <!-- <a href="/exercises/new"	<%- title === 'Add Exercise' ? 'class="active"' : '' %>>
-              ADD EXERCISE</a> -->
-            <a href="/workouts/my" <%- title === 'My Workouts' ? 'class="active"' : '' %>>My Workouts</a>
-            <div class="separator">|</div>  
-            <a href="/workouts/new" <%- title === 'Add Workout' ? 'class="active"' : '' %>>Add Workout</a>
-            <div class="separator">|</div>  
-        <% } %>
+          <!-- <div class="separator">|</div>   -->
+          <!-- Add back once exercises and new function for workouts set up -->
+          <a href="/workouts/my" <%- title === 'My Workouts' ? 'class="active"' : '' %>>My Workouts</a>
+          <!-- <div class="separator">|</div>   -->
+          <a href="/workouts/new" <%- title === 'Add Workout' ? 'class="active"' : '' %>>Add Workout</a>
+          <div class="separator">|</div>  
+          <div class="nav-exercises">
+            <a href="/exercises/my"	<%- title === 'My Exercises' ? 'class="active"' : '' %>>My Exercises</a>
+            <a href="/exercises/new"	<%- title === 'Add Exercise' ? 'class="active"' : '' %>>Add Exercise</a>
+          </div>
+          <div class="separator">|</div> 
+          <% } %>
       </div> 
       <div class="right-side-links">
         <% if (user) { %>
