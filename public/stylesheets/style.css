@@ -14,9 +14,9 @@ main, footer {
 }
 
 main {
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  align-items: center; */
+  align-items: center;
   min-height: 100vh;
 }
 
@@ -56,9 +56,11 @@ li:last-child {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
-  background-color: rgba(35, 108, 212);
-  border: 1px solid none;
-  padding: 40px;
+  background-color: black;
+  /* background-color: rgba(35, 108, 212); */
+  border-radius: 60px;
+  padding: 30px 40px;
+  max-width: 340px;
 }
 
 .home-page-title {
@@ -71,6 +73,12 @@ li:last-child {
   border: 1px solid aquamarine;
   padding: 20px;
   border-radius: 20px;
+  font-size: 1.2em;
+}
+
+.home-page a:hover {
+  background-color: rgba(35, 108, 212);
+  color: white;
 }
 
 /* h1 {
@@ -79,9 +87,6 @@ li:last-child {
   align-items: center;
 } */
 
-.appName {
-  color: aquamarine;
-}
 
 .navBar {
   display: flex;
@@ -91,6 +96,9 @@ li:last-child {
   background-color: black;
 }
 
+.appName {
+  color: aquamarine;
+}
 .name-and-logo {
   display: flex;
   align-items: center;
@@ -202,7 +210,21 @@ a:not(.navBar a):hover {
   }
 
   .home-page {
-    padding: 80px;
-    background-color: red;
+    padding: 60px 80px;
+    background-color: rgba(35, 108, 212);
+    max-width: 500px;
+    color: white;
+  }
+
+  .home-page-links {
+    font-size: 1.5em;
+    background-color: black;
+    color: white;
+    border-color: white;
+  }
+
+  .home-page a:hover {
+    background-color: black;
+    color: aquamarine;
   }
 }
