@@ -15,9 +15,10 @@
 <!-- End of show specific code -->
 
 
-<!-- Table version before edit mode -->
-
 <%- include('../partials/header') %>
+
+<!-- Table version for show specific code -->
+<h1><%= title %></h1>
 
 <h3><%= workout.name %> workout details below</h3>
 <table>
@@ -55,5 +56,6 @@
     <br>
     Workout last updated: <%= workout.updatedAt.toLocaleString() %>
 </p>
+<!-- End of show specific code -->
 
 <%- include('../partials/footer') %>

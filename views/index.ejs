@@ -2,8 +2,19 @@
 
 <!-- Index specific code -->
 
-<a href="/workouts">Go to workouts</a>
-<!-- <a href="/exercises">Go to exercises</a> -->
+<div class="home-page">
+    <h1 class="home-page-title"><%= title %></h1>
+
+    <a href="/workouts" class="home-page-links">Go to all workouts</a>
+
+    <!-- <a href="/exercises">Go to exercises</a> -->
+
+    <% if (user) { %>
+      <a href="/logout" class="home-page-links">Log Out</a>
+    <% } else { %>
+      <a href="/auth/google" class="login home-page-links">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <% } %>
+</div>
 
 <!-- End of index specific code -->
 
