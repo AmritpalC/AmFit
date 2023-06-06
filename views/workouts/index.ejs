@@ -8,7 +8,7 @@
     <% workouts.forEach(function(workout){ %>
         <li>
             <a href="/workouts/<%=workout._id %>"><%= workout.name %></a> (<%= workout.date.toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) %>)
-
+            <div>Added by <%= workout.user.name %></div>
             <!-- Like/unlike button -->
             <% if (user) { %>
                 <form class="like-button" method="POST" action="/workouts/<%= workout._id %>/likes">

@@ -5,7 +5,7 @@ const Workout = require('../models/workout')
 async function index(req, res, next) {
     // want to query workouts collection and return all workouts, 
     // passing them into the render template
-    const allWorkouts = await Workout.find({}).sort({ date: -1, time: -1 })
+    const allWorkouts = await Workout.find({}).sort({ date: -1, time: -1 }).populate('user')
     console.log(allWorkouts)
     res.render('workouts/index', {
         title: 'Search Workouts',
@@ -52,9 +52,11 @@ async function create(req, res, next) {
         // spreading in all values, then reassign values after, so it applies spread
         // and formatting before pulling through
         const userId = req.user._id
+        const userName = req.user.name
         const body = {
             ...req.body,
-            user: userId
+            user: userId,
+            username: userName
             // ! removed for now -> further work and array implementation needed
             // exercises: req.body.exercises.trim().split(/\s*,\s*/)
         }
