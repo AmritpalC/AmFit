@@ -8,20 +8,20 @@
 <ul> 
     <% workouts.forEach(function(workout){ %>
         <li>
-            <a href="/workouts/<%=workout._id %>"><%= workout.name %></a> (<%= workout.date.toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) %>)
-            <div>Added by <%= workout.user.name %></div>
+            <a href="/workouts/<%=workout._id %>" class="workout-names"><%= workout.name %></a>
+            <div class="workout-created-dates">(<%= workout.date.toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) %>)</div>
+            <div class="workout-user-name">Added by <%= workout.user.name %></div>
             <!-- Like/unlike button -->
             <% if (user) { %>
-                <form class="like-button" method="POST" action="/workouts/<%= workout._id %>/likes">
+                <form class="like-unlike-button" method="POST" action="/workouts/<%= workout._id %>/likes">
                     <% if (workout.likes.some(like => like.user.equals(user._id))) { %>
-                        <button type="submit">Unlike</button>
+                        <button type="submit" class="unlike-button">Unlike</button>
                     <% } else { %>
-                        <button type="submit">Like</button>
+                        <button type="submit" class="like-button">Like</button>
                     <% } %>
                 </form>
             <% } %>
-
-            <div>Likes: <%= workout.likes.length %></div>
+            <div class="workout-likes">Likes: <%= workout.likes.length %></div>
             
             <% if (user && workout.user.equals(user._id)) { %>
                 <form 

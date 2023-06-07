@@ -8,7 +8,8 @@
 <ul> 
     <% exercises.forEach(function(exercise){ %>
         <li>
-            <a href="/exercises/<%=exercise._id %>"><%= exercise.name %></a>
+            <a href="/exercises/<%=exercise._id %>" class="exercise-names"><%= exercise.name %></a>&nbsp;
+            <div class="exercise-created-dates">Created: <%= exercise.createdAt.toDateString() %></div>
         </li>
     <% }) %> 
 </ul>

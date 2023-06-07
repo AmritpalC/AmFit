@@ -4,7 +4,6 @@
 
 body {
   margin: 0;
-  /* padding: 50px; */
   font: 14px "Varela Round", Helvetica, Arial, sans-serif;
 }
 
@@ -17,6 +16,27 @@ main {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+}
+
+table {
+  width: 50%;
+  text-align: center;
+}
+
+th {
+  border-bottom: 2px solid white;
+}
+
+.exercise-show-table {
+  background-color: rgb(100, 127, 237);
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.workout-show-table {
+  background-color: rgba(35, 108, 212);
+  border-radius: 0.5rem;
+  color: white;
 }
 
 footer {
@@ -41,7 +61,8 @@ li {
   flex-direction: column;
   justify-content: space-between;
   list-style: none;
-  padding-bottom: 1%;
+  padding-bottom: 5%;
+  padding-top: 2%;
   border-bottom: 1px solid grey;
   margin-bottom: 1%;
 }
@@ -59,7 +80,6 @@ li:last-child {
   align-items: center;
   margin-top: 50px;
   background-color: black;
-  /* background-color: rgba(35, 108, 212); */
   border-radius: 60px;
   padding: 30px 40px;
   max-width: 340px;
@@ -101,7 +121,7 @@ li:last-child {
 
 .separator {
   color: white;
-  font-size: 1.4em;
+  font-size: 1.5em;
   display: none;
 }
 
@@ -203,6 +223,7 @@ a:not(.navBar a):hover {
 
 .add-workout-form input, .edit-workout-form input, .add-exercise-form input {
   border-radius: 0.4rem;
+  padding: 0.2rem;
 }
 
 .add-workout-form label, .edit-workout-form label, .add-exercise-form label {
@@ -240,6 +261,42 @@ a:not(.navBar a):hover {
   transform: scale(1.1);
 }
 
+.exercise-names {
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.workout-names {
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.workout-created-dates, .exercise-created-dates {
+  width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.workout-user-name {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.like-unlike-button {
+  width: 75px;
+}
+
+.workout-likes {
+  width: 100px;
+}
+
 .m-top {
   margin-top: 10px;
 }
@@ -247,10 +304,29 @@ a:not(.navBar a):hover {
 .delete-workout-form {
   display: inline-block;
   margin-left: 10px;
+  width: 25px;
 }
 
 .delete-workout-form button {
   color: red;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.unlike-button {
+  background-color: grey;
+  color: white;
+  border-radius: 0.3rem;
+}
+
+.like-button {
+  background-color: salmon;
+  color: white;
+  border-radius: 0.3rem;
 }
 
 .red {
@@ -286,6 +362,8 @@ a:not(.navBar a):hover {
   li {
     display: flex;
     flex-direction: row;
+    padding-top: 1%;
+    padding-bottom: 3%;
   }
   
   .navBar {
