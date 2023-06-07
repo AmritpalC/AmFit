@@ -4,8 +4,6 @@ const Exercise = require('../models/exercise');
 
 // GET /workouts
 async function index(req, res, next) {
-    // want to query workouts collection and return all workouts, 
-    // passing them into the render template
     const allWorkouts = await Workout.find({}).sort({ date: -1, time: -1 }).populate('user')
     console.log(allWorkouts)
     res.render('workouts/index', {
@@ -22,10 +20,6 @@ async function show(req, res, next) {
         const exercises = await Exercise.find({ _id: { $nin: workout.exercises } }).sort('name')
         console.log(exercises)
 
-        // for(const key in workout.toObject()){
-        //     console.log(`${key[0].toUpperCase() + key.substring(1)}: ${workout[key]}`)
-        // }
-
         res.render('workouts/show', {
             title: workout.name,
             workout,
@@ -33,9 +27,8 @@ async function show(req, res, next) {
         })
     } catch (err) {
         console.log('ERROR MESSAGE ->', err.message)
-        // next() moves on to error middleware if id doesn't match
-        // could instead use res.render() - to link to a view such as 
-        // workout not found -> such as workouts/notFound.ejs
+        // next() moves on to error middleware if id doesn't match. Could res.render() - 
+        // to link to a view such as workout not found -> such as workouts/notFound.ejs
         next()
     }
 }
@@ -48,20 +41,13 @@ async function newWorkout(req, res, next) {
 // POST /workouts
 async function create(req, res, next) {
     try {
-        // req.body to see everything that is passed from the form
-        // console.log(req.body)
-        // const exercisesTrimmed = req.body.exercises.trim()
-        // const exercisesAsArray = exercisesTrimmed.split(/\s*,\s*/)
-
-        // spreading in all values, then reassign values after, so it applies spread
-        // and formatting before pulling through
         const userId = req.user._id
         const userName = req.user.name
         const body = {
             ...req.body,
             user: userId,
             username: userName
-            // ! removed for now -> further work and array implementation needed
+            // ? removed for now -> further work and array implementation needed
             // exercises: req.body.exercises.trim().split(/\s*,\s*/)
         }
         // submitting doc to the database
@@ -84,13 +70,11 @@ async function deleteWorkout(req, res, next) {
         const { id } = req.params
         const workout = await Workout.findById(id)
 
-        // could be more concise, by using:
-        // await Workout.deleteOne({ _id: id })
-
-        // ? But I want to implement a render to a delete confirmation screen, which I 
-        // ? will add later if/when I have time
-        // ? res.render(`workouts/${workout._id}/delete`, { workout })
+        // could be more concise, by using -> await Workout.deleteOne({ _id: id })
+        // ? But I want to implement a render to a delete confirmation screen, which I will add 
+        // ? later if/when I have time -> res.render(`workouts/${workout._id}/delete`, { workout })
         // validating if user is the same as who created the workout -> if not:
+
         if (workout.user.toString() !== req.user._id.toString()) {
             return res.render('workouts/unauthorized', { title: 'Error', message: 'You are not authorised to delete this workout.' })
         }
@@ -105,9 +89,6 @@ async function deleteWorkout(req, res, next) {
     } catch (err) {
         console.log('ERROR MESSAGE ->', { errorMessage: err.message })
         next()
-        // next() moves on to error middleware if id doesn't match
-        // could instead use res.render() - to link to a view such as 
-        // workout not found -> such as workouts/notFound.ejs
     }
 }
 
@@ -170,20 +151,4 @@ module.exports = {
     update,
     my: myWorkouts,
     unauthorized
-    // confirmDeleteWorkout
 }
-
-// // DELETE confirmation /workout/:id/confirm-delete
-// async function confirmDeleteWorkout(req, res, next) {
-//     try {
-//         const { id } = req.params
-//         await Workout.deleteOne({ _id: id })
-//         res.redirect('/workouts')
-//     } catch (err) {
-//         console.log('ERROR MESSAGE ->', { errorMessage: err.message })
-//         next()
-//         // next() moves on to error middleware if id doesn't match
-//         // could instead use res.render() - to link to a view such as 
-//         // workout not found -> such as workouts/notFound.ejs
-//     }
-// }

@@ -25,7 +25,7 @@
         <th>Exercises</th>
     </thead>
     <tbody>
-        <!-- Loop over exercises array with forEach to show all exercises -->
+        <!-- Looping over exercises array to show all exercises -->
         <% workout.exercises.forEach(exercise => { %>
             <tr>
                 <td><%= exercise.name %></td>
@@ -34,21 +34,21 @@
     </tbody>
 </table>
 
-<h3>Add exercises to your workout</h3>
-<form id="add-exercise-to-workout-form" action="/workouts/<%= workout._id %>/exercises" method="POST">
-    <select name="exerciseId">
-        <%- exercises.map(exercise =>
-            `<option value="${exercise._id}">${exercise.name}</option>`
-        ).join('') %>
-    </select>
-    <button type="submit" class="add-exercise-to-workout-btn">Add to Exercises</button>
-</form>
-
-<h4>If you need to create the exercise first, go here</h4>
-<a href="/exercises/new" class="create-exercise-btn">Add Exercise</a>
-
-<h4>To edit your workout</h4>
 <% if (user && workout.user.equals(user._id)) { %>
+    <h3>Add exercises to your workout</h3>
+    <form id="add-exercise-to-workout-form" action="/workouts/<%= workout._id %>/exercises" method="POST">
+        <select name="exerciseId">
+            <%- exercises.map(exercise =>
+                `<option value="${exercise._id}">${exercise.name}</option>`
+            ).join('') %>
+        </select>
+        <button type="submit" class="add-exercise-to-workout-btn">Add to Exercises</button>
+    </form>
+
+    <h4>If you need to create the exercise first, go here</h4>
+    <a href="/exercises/new" class="create-exercise-btn">Add Exercise</a>
+
+    <h4>To edit your workout</h4>
     <a href="/workouts/<%= workout._id %>/edit" class="edit-button">Edit Workout</a>
 <% } %>
 

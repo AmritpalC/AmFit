@@ -28,14 +28,22 @@
     <input type="text" name="calories" value="<%= workout.calories %>">
     
     <!-- Exercises -->
-    <label>Exercises (separate exercises with commas)</label>
-    <input type="text" name="exercises" value="<%= workout.exercises %>">
+    <!-- ? Trying to get drop down functionality to work! It works but can't see text! -->
+    <label>Exercises (please create new workout if changes needed)</label>
+    <select name="exercises" id="exercises-dropdown-menu" multiple>
+        <% workout.exercises.forEach(exercise => { %>
+            <option value="<%= exercise._id %>" 
+                <% if (workout.exercises.includes(exercise._id)) { %>selected<% } %>>
+                    <%= exercise.name %>
+            </option>
+        <% }) %>
+    </select>
 
     <!-- Submit new workout -->
     <span class="addWorkoutBtn m-top"><input type="submit" value="Update Workout"></span>
 
     <!-- Error rendering added -->
-    <small class="red"><%= errorMessage %></small>
+    <small class="black"><%= errorMessage %></small>
 
 </form>
 <!-- End of Edit specific code -->

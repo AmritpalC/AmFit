@@ -319,8 +319,8 @@ a:not(.navBar a):hover {
   cursor: pointer;
 }
 
-#add-exercise-to-workout-form {
-  /* padding-top: 1em; */
+#exercises-dropdown-menu option {
+  color: black;
 }
 
 button:hover {
@@ -339,8 +339,8 @@ button:hover {
   border-radius: 0.3rem;
 }
 
-.red {
-  color: red;
+.black {
+  color: black;
 }
 
 .attributes {

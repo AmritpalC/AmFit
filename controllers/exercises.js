@@ -26,7 +26,7 @@ async function show(req, res, next) {
 
 async function newExercise(req, res, next) {
     const exercises = await Exercise.find({}).sort('name');
-    res.render('exercises/new', { title: 'Add Exercise', exercises})
+    res.render('exercises/new', { title: 'Add Exercise', errorMessage: '', exercises})
 }
 
 async function create(req, res, next) {
@@ -40,10 +40,12 @@ async function create(req, res, next) {
         }
         const createdExercise = await Exercise.create(body)
         console.log(createdExercise)
+        res.redirect('/exercises/new')
     } catch (err) {
         console.log('ERROR MESSAGE ->', err.message)
+        const exercises = await Exercise.find({}).sort('name')
+        res.render('exercises/new', { title: 'Add Exercise', errorMessage: err.message, exercises })
     }
-    res.redirect('/exercises/new')
 }
 
 // DELETE /exercise/:id
