@@ -39,6 +39,13 @@ th {
   color: white;
 }
 
+.workout-exercises-show-table {
+  background-color: rgb(100, 127, 237);
+  border-radius: 0.5rem;
+  color: white;
+  width: 30%;
+}
+
 footer {
   background-color: black;
   color: white;
@@ -235,7 +242,7 @@ a:not(.navBar a):hover {
   padding-top: 1rem;
 }
 
-.addWorkoutBtn input, .addExerciseBtn input {
+.addWorkoutBtn input, .addExerciseBtn input, .add-exercise-to-workout-btn {
   background-color: black;
   color: white;
   cursor: pointer;
@@ -247,7 +254,7 @@ a:not(.navBar a):hover {
   transform: scale(1.1);
 }
 
-.edit-button, .all-exercises-btn {
+.edit-button, .all-exercises-btn, .create-exercise-btn {
   display: inline-block;
   padding: 0.25rem 0.5rem;
   background-color: rgb(100, 127, 237);
@@ -310,6 +317,10 @@ a:not(.navBar a):hover {
   color: red;
   border-radius: 0.3rem;
   cursor: pointer;
+}
+
+#add-exercise-to-workout-form {
+  /* padding-top: 1em; */
 }
 
 button:hover {

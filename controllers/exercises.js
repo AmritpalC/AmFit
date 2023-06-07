@@ -46,20 +46,17 @@ async function create(req, res, next) {
     res.redirect('/exercises/new')
 }
 
-// DELETE /workout/:id
+// DELETE /exercise/:id
 async function deleteExercise(req, res, next) {
     try {
         const { id } = req.params
         const exercise = await Exercise.findById(id)
 
-        // could be more concise, by using:
-        // await Workout.deleteOne({ _id: id })
-
         // validating if user is the same as who created the exercise -> if not:
-        // if (exercise.user.toString() !== req.user._id.toString()) {
-        //     return res.render('workouts/unauthorized', { title: 'Error', message: 'You are not authorised to delete this exercise.' })
-        // }
-        // else, when user matches, delete workout and return to page they were on
+        if (exercise.user.toString() !== req.user._id.toString()) {
+            return res.render('workouts/unauthorized', { title: 'Error', message: 'You are not authorised to delete this exercise.' })
+        }
+        // else, when user matches, delete exercise and return to page they were on
         await exercise.deleteOne()
         const referer = req.headers.referer
         if (referer && referer.includes('/exercises/my')) {
@@ -86,11 +83,20 @@ async function myExercises(req, res, next) {
     }
 }
 
+async function addToWorkout(req, res) {
+    const workout = await Workout.findById(req.params.id)
+    // exercises array holds the exercise's ObjectId (referenced)
+    workout.exercises.push(req.body.exerciseId)
+    await workout.save()
+    res.redirect(`/workouts/${workout._id}`);
+}
+
 module.exports = {
     index,
     new: newExercise,
     create,
     show,
     my: myExercises,
-    delete: deleteExercise
+    delete: deleteExercise,
+    addToWorkout
 }

@@ -1,20 +1,3 @@
-<!-- Show specific code -->
-<!-- <h3><%= workout.name %> workout details below</h3> -->
-
-<!-- <ul>
-    <% for(const key in workout) { %>
-        <% if(key !== '_id' && key !== '__v') { %>
-            <li><%= key[0].toUpperCase() + key.substring(1) %>: <%= workout[key] %></li>
-       <% } %>
-    <% } %>
-    
-    <a href="/workouts/<%= workout._id %>/edit">Edit Workout</a>
-</ul> -->
-
-
-<!-- End of show specific code -->
-
-
 <%- include('../partials/header') %>
 
 <!-- Table version for show specific code -->
@@ -37,18 +20,36 @@
 </table>
 
 <h3>Exercises in workout</h3>
-<table>
-    <thead class="workoutExercisesShowTable">
+<table class="workout-exercises-show-table">
+    <thead>
         <th>Exercises</th>
     </thead>
     <tbody>
-        <!-- Add forEach to iterate over exercises array when I get there to show all exercises -->
-        <td><%= workout.exercises %></td>
+        <!-- Loop over exercises array with forEach to show all exercises -->
+        <% workout.exercises.forEach(exercise => { %>
+            <tr>
+                <td><%= exercise.name %></td>
+            </tr>
+        <% }) %>
     </tbody>
 </table>
 
+<h3>Add exercises to your workout</h3>
+<form id="add-exercise-to-workout-form" action="/workouts/<%= workout._id %>/exercises" method="POST">
+    <select name="exerciseId">
+        <%- exercises.map(exercise =>
+            `<option value="${exercise._id}">${exercise.name}</option>`
+        ).join('') %>
+    </select>
+    <button type="submit" class="add-exercise-to-workout-btn">Add to Exercises</button>
+</form>
+
+<h4>If you need to create the exercise first, go here</h4>
+<a href="/exercises/new" class="create-exercise-btn">Add Exercise</a>
+
+<h4>To edit your workout</h4>
 <% if (user && workout.user.equals(user._id)) { %>
-    <a href="/workouts/<%= workout._id %>/edit" class="edit-button m-top">Edit Workout</a>
+    <a href="/workouts/<%= workout._id %>/edit" class="edit-button">Edit Workout</a>
 <% } %>
 
 <p>

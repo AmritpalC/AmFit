@@ -17,7 +17,10 @@ const workoutSchema = new Schema({
     category: { type: String, required: true },
     duration: { type: Number, required: true, min: 1 },
     calories: { type: Number, min: 1 },
-    exercises:[String],
+    exercises:[{
+        type: Schema.Types.ObjectId,
+        ref: 'Exercise'
+    }],
     likes: [likeSchema],
     user: { type: Schema.Types.ObjectId, ref: 'User' }
     // comments: { type: String }

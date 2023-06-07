@@ -1,5 +1,6 @@
 // Importing model
-const Workout = require('../models/workout')
+const Workout = require('../models/workout');
+const Exercise = require('../models/exercise');
 
 // GET /workouts
 async function index(req, res, next) {
@@ -17,15 +18,18 @@ async function index(req, res, next) {
 async function show(req, res, next) {
     try {
         const { id } = req.params
-        const workout = await Workout.findById(id)
-        
-        for(const key in workout.toObject()){
-            console.log(`${key[0].toUpperCase() + key.substring(1)}: ${workout[key]}`)
-        }
+        const workout = await Workout.findById(id).populate('exercises')
+        const exercises = await Exercise.find({ _id: { $nin: workout.exercises } }).sort('name')
+        console.log(exercises)
+
+        // for(const key in workout.toObject()){
+        //     console.log(`${key[0].toUpperCase() + key.substring(1)}: ${workout[key]}`)
+        // }
 
         res.render('workouts/show', {
+            title: workout.name,
             workout,
-            title: workout.name
+            exercises
         })
     } catch (err) {
         console.log('ERROR MESSAGE ->', err.message)
@@ -61,11 +65,11 @@ async function create(req, res, next) {
             // exercises: req.body.exercises.trim().split(/\s*,\s*/)
         }
         // submitting doc to the database
-        const createdWorkout = await Workout.create(body)
-        console.log(createdWorkout._id)
+        const workout = await Workout.create(body)
+        console.log(workout._id)
 
         // on success - redirect user to newly created workout on show route
-        res.redirect(`/workouts/${createdWorkout._id}`)
+        res.redirect(`/workouts/${workout._id}`)
     } catch (err) {
         console.log('ERROR MESSAGE ->', err.message)
         // for now, will res.render same page and send an error message

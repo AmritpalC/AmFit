@@ -23,8 +23,7 @@ router.post('/exercises', ensureLoggedIn, exercisesCtrl.create);
 // DELETE /workouts/:id
 router.delete('/exercises/:id', ensureLoggedIn, exercisesCtrl.delete)
 
-
 // POST /workouts/:id/exercises (associate exercises with a workout)
-
+router.post('/workouts/:id/exercises', ensureLoggedIn, exercisesCtrl.addToWorkout)
 
 module.exports = router;

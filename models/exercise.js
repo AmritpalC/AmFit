@@ -10,4 +10,4 @@ const exerciseSchema = new Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Exercises', exerciseSchema)
+module.exports = mongoose.model('Exercise', exerciseSchema)
