@@ -12,17 +12,18 @@
             <div class="workout-created-dates">(<%= workout.date.toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) %>)</div>
             <div class="workout-user-name">Added by <%= workout.user.name %></div>
             <!-- Like/unlike button -->
-            <% if (user) { %>
-                <form class="like-unlike-button" method="POST" action="/workouts/<%= workout._id %>/likes">
-                    <% if (workout.likes.some(like => like.user.equals(user._id))) { %>
-                        <button type="submit" class="unlike-button">Unlike</button>
-                    <% } else { %>
-                        <button type="submit" class="like-button">Like</button>
-                    <% } %>
-                </form>
-            <% } %>
+            <div class="like-unlike-button">
+                <% if (user) { %>
+                    <form method="POST" action="/workouts/<%= workout._id %>/likes">
+                        <% if (workout.likes.some(like => like.user.equals(user._id))) { %>
+                            <button type="submit" class="unlike-button">Unlike</button>
+                        <% } else { %>
+                            <button type="submit" class="like-button">Like</button>
+                        <% } %>
+                    </form>
+                <% } %>
+            </div>
             <div class="workout-likes">Likes: <%= workout.likes.length %></div>
-            
             <% if (user && workout.user.equals(user._id)) { %>
                 <form 
                     action="/workouts/<%= workout.id %>?_method=DELETE"

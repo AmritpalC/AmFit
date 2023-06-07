@@ -8,8 +8,15 @@
 <ul> 
     <% exercises.forEach(function(exercise){ %>
         <li>
-            <a href="/exercises/<%=exercise._id %>" class="exercise-names"><%= exercise.name %></a>&nbsp;
+            <a href="/exercises/<%= exercise._id %>" class="exercise-names"><%= exercise.name %></a>&nbsp;
             <div class="exercise-created-dates">Created: <%= exercise.createdAt.toDateString() %></div>
+            <form 
+                action="/exercises/<%= exercise._id %>?_method=DELETE"
+                method="POST"
+                class="delete-exercise-form"
+                >
+                <button type="submit">X</button>
+            </form>
         </li>
     <% }) %> 
 </ul>

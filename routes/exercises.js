@@ -20,6 +20,10 @@ router.get('/exercises/my', ensureLoggedIn, exercisesCtrl.my)
 // POST /exercises (Create)
 router.post('/exercises', ensureLoggedIn, exercisesCtrl.create);
 
+// DELETE /workouts/:id
+router.delete('/exercises/:id', ensureLoggedIn, exercisesCtrl.delete)
+
+
 // POST /workouts/:id/exercises (associate exercises with a workout)
 
 

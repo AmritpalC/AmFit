@@ -276,7 +276,7 @@ a:not(.navBar a):hover {
 }
 
 .workout-created-dates, .exercise-created-dates {
-  width: 260px;
+  width: 280px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -303,7 +303,7 @@ a:not(.navBar a):hover {
 
 .delete-workout-form {
   display: inline-block;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   width: 25px;
 }
 

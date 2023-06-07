@@ -8,7 +8,7 @@
 <ul> 
     <% workouts.forEach(function(workout){ %>
         <li>
-            <a href="/workouts/<%=workout._id %>" class="workout-names"><%= workout.name %></a>
+            <a href="/workouts/<%= workout._id %>" class="workout-names"><%= workout.name %></a>
             <div class="workout-created-dates">(<%= workout.date.toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) %>)</div>
             <div class="workout-likes">Likes: <%= workout.likes.length %></div>
             <form 

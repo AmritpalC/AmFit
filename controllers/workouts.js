@@ -79,8 +79,7 @@ async function deleteWorkout(req, res, next) {
     try {
         const { id } = req.params
         const workout = await Workout.findById(id)
-        
-        // ! add check to see if user created the workout so can delete
+
         // could be more concise, by using:
         // await Workout.deleteOne({ _id: id })
 
