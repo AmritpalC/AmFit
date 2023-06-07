@@ -6,6 +6,7 @@ const logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
+const MongoStore = require('connect-mongo');
 
 // ? ROUTES
 const indexRouter = require('./routes/index');
@@ -40,6 +41,7 @@ app.use(methodOverride('_method'));
 // Configuring and mounting session middleware
 app.use(session({
   secret: process.env.SECRET,
+  store: MongoStore.create({ mongoUrl: process.env.SESSION_DATABASE_URL }),
   resave: false,
   saveUninitialized: true
 }));
