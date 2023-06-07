@@ -301,13 +301,12 @@ a:not(.navBar a):hover {
   margin-top: 10px;
 }
 
-.delete-workout-form {
+.delete-workout-form, .delete-exercise-form {
   display: inline-block;
-  /* margin-left: 10px; */
   width: 25px;
 }
 
-.delete-workout-form button {
+.delete-workout-form button, .delete-exercise-form button {
   color: red;
   border-radius: 0.3rem;
   cursor: pointer;

@@ -9,13 +9,15 @@
     <% exercises.forEach(function(exercise){ %>
         <li>
             <a href="/exercises/<%=exercise._id %>" class="exercise-names"><%= exercise.name %></a>
-            <form 
-            action="/exercises/<%= exercise._id %>?_method=DELETE"
-            method="POST"
-            class="delete-exercise-form"
-            >
-            <button type="submit">X</button>
-        </form>
+            <% if (user && exercise.user.equals(user._id)) { %>
+                <form 
+                action="/exercises/<%= exercise._id %>?_method=DELETE"
+                method="POST"
+                class="delete-exercise-form"
+                >
+                <button type="submit">X</button>
+                </form>
+            <% } %>
         </li>
     <% }) %> 
 </ul>
