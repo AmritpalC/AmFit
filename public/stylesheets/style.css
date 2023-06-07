@@ -151,6 +151,10 @@ li:last-child {
   font-size: 1em;
 }
 
+#home-link {
+  color: white
+}
+
 .navBar a:hover {
   background-color: white;
 }
@@ -160,35 +164,76 @@ a:not(.navBar a):hover {
 }
 
 .nav-exercises a {
-  color: cornflowerblue;
+  color: rgb(100, 127, 237);
 }
 
-.add-workout-form, .edit-workout-form, .add-exercise-form {
+.right-side-links a {
+  color: white;
+}
+
+.right-side-links a:hover, #home-link:hover {
+  color: black;
+}
+
+.add-workout-form, .edit-workout-form {
   width: 100%;
   max-width: 250px;
-  border: 1px solid;
+  border: 3px solid rgb(100, 127, 237);
   border-radius: 20px;
   padding: 20px;
+  background-color: rgba(35, 108, 212);
+  color: white;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+}
+
+.add-exercise-form {
+  width: 100%;
+  max-width: 250px;
+  border: 3px solid rgba(35, 108, 212);
+  border-radius: 20px;
+  padding: 20px;
+  background-color: rgb(100, 127, 237);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.add-workout-form input, .edit-workout-form input, .add-exercise-form input {
+  border-radius: 0.4rem;
 }
 
 .add-workout-form label, .edit-workout-form label, .add-exercise-form label {
   margin-top: 10px;
 }
 
-.addWorkoutBtn {
+.addWorkoutBtn, .addExerciseBtn {
   text-align: center;
+  padding-top: 1rem;
+}
+
+.addWorkoutBtn input, .addExerciseBtn input {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+.addWorkoutBtn input:hover, .addExerciseBtn input:hover {
+  transform: scale(1.1);
 }
 
 .edit-button, .all-exercises-btn {
   display: inline-block;
-  padding: 8px 16px;
-  background-color: aquamarine;
+  padding: 0.25rem 0.5rem;
+  background-color: rgb(100, 127, 237);
   cursor: pointer;
   text-align: center;
-  border-radius: 10px;
+  color: white;
+  border-radius: 0.5rem;
 }
 
 .edit-button:hover {
@@ -219,15 +264,15 @@ a:not(.navBar a):hover {
 #badge-container {
   display: flex;
   flex-wrap: wrap;
-  /* padding: 1rem; */
-  width: 80%;
+  width: 60%;
   border: 2px solid #B8C0C2;
   border-radius: .5rem;
   margin: .5rem 0 2rem;
 }
 
 .badge {
-  background-color: #B8C0C2;
+  background-color: rgba(35, 108, 212);
+  color: white;
   padding: .5rem;
   margin: .5rem;
   border-radius: .3rem;
