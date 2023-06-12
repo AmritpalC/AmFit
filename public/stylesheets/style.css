@@ -8,7 +8,7 @@ body {
 }
 
 main, footer {
-  padding: 50px;
+  padding: 40px;
 }
 
 main {
@@ -209,7 +209,7 @@ a:not(.navBar a):hover {
   border: 3px solid rgb(100, 127, 237);
   border-radius: 20px;
   padding: 20px;
-  background-color: rgba(35, 108, 212);
+  background-color: rgb(35, 108, 212);
   color: white;
   display: flex;
   flex-direction: column;
@@ -255,10 +255,20 @@ a:not(.navBar a):hover {
   transform: scale(1.1);
 }
 
-.edit-button, .all-exercises-btn, .create-exercise-btn {
+.all-exercises-btn, .create-exercise-btn, .new-exercise-btn {
   display: inline-block;
   padding: 0.25rem 0.5rem;
   background-color: rgb(100, 127, 237);
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.edit-button, .new-workout-btn, .my-workouts-btn {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: rgb(35, 108, 212);
   cursor: pointer;
   text-align: center;
   color: white;
@@ -346,6 +356,13 @@ button:hover {
   background-color: salmon;
   color: white;
   border-radius: 0.3rem;
+}
+
+.hi-user {
+  color: aquamarine;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: black;
 }
 
 .black {

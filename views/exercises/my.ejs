@@ -3,7 +3,15 @@
 <!-- My exercises specific code -->
 <h1><%= title %></h1>
 
-<p>Hi <%= user.name %>! Here are all your exercises below:</p>
+<h3 class="hi-user">Hi <%= user.name %>!</h3>
+
+<p>Add a new exercise or access all exercises below:</p>
+
+<a href="/exercises/new" class="new-exercise-btn">New Exercise</a>
+
+<a href="/exercises" class="all-exercises-btn m-top">All Exercises</a>
+    
+<p>Here are all your created exercises:</p>
 
 <ul> 
     <% exercises.forEach(function(exercise){ %>
@@ -21,7 +29,7 @@
     <% }) %> 
 </ul>
 
-<a href="/exercises" class="all-exercises-btn m-top">All Exercises</a>
+
 <!-- End of my exercises specific code -->
 
 <%- include('../partials/footer') %>

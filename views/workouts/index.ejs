@@ -10,7 +10,7 @@
         <li>
             <a href="/workouts/<%=workout._id %>" class="workout-names"><%= workout.name %></a>
             <div class="workout-created-dates">(<%= workout.date.toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) %>)</div>
-            <div class="workout-user-name">Added by <%= workout.user.name %></div>
+            <div class="workout-user-name">Added by <%= workout.user.name.split(' ')[0] %></div>
             <!-- Like/unlike button -->
             <div class="like-unlike-button">
                 <% if (user) { %>
